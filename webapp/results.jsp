@@ -32,6 +32,37 @@
 
 */
 %>
+<head>
+	<style>
+	.table-container {
+    background-color: #a0d8ef;
+	}
+	.japan-table {
+    margin-left:10%;
+	margin-right:10%; 
+    border-collapse: collapse;
+    background-color: #fffaf0; 
+    font-family: 'Noto Sans JP', sans-serif;
+	}
+	.japan-pagination {
+	    margin-top: 10px;
+	    text-align: center;
+	    font-size: 16px;
+	}
+	.japan-pagination a {
+	    text-decoration: none;
+	    padding: 8px 12px;
+	    background-color: #b30000;
+	    color: white;
+	    border-radius: 5px;
+	    margin: 0 5px;
+	}
+	
+	.japan-pagination a:hover {
+	    background-color: #8b0000;
+	}
+	</style>
+</head>
 <%!
 public String escapeHTML(String s) {
   s = s.replaceAll("&", "&amp;");
@@ -135,7 +166,8 @@ public String escapeHTML(String s) {
 
         if (error == false && searcher != null) {                   
 %>
-                <table>
+<div class="table-container">
+                <table class="japan-table">
 <%
                 if ((startindex + maxpage) > numTotalHits) {
                         thispage = numTotalHits - startindex;      // set the max index to maxpage or last
@@ -201,34 +233,32 @@ public String escapeHTML(String s) {
 %>
 <%
 	int currentPage = (startindex / maxpage) + 1;
-    if (startindex > 0) {   // ถ้ามีหน้า Previous
+    if (startindex > 0) {  
         lessurl = "results.jsp?query=" + URLEncoder.encode(queryString, "UTF-8") + 
                   "&amp;maxresults=" + maxpage + 
                   "&amp;startat=" + (startindex - maxpage);
     }
 
-    if ((startindex + maxpage) < numTotalHits) {  // ถ้ามีหน้า Next
+    if ((startindex + maxpage) < numTotalHits) { 
         moreurl = "results.jsp?query=" + URLEncoder.encode(queryString, "UTF-8") + 
                   "&amp;maxresults=" + maxpage + 
                   "&amp;startat=" + (startindex + maxpage);
     }
 %>
-
-		<tr>
-		    <td colspan="2" align="center"> <!-- จัดให้อยู่ตรงกลาง -->
-		        <% if (!lessurl.isEmpty()) { %>
-		            <a href="<%= lessurl %>">&lt;&lt;</a>
-		        <% } %>
-		
-		        &nbsp; Page: <%= currentPage %>  &nbsp;
-		
-		        <% if (!moreurl.isEmpty()) { %>
-		            <a href="<%= moreurl %>">&gt;&gt;</a>
-		        <% } %>
-		    </td>
-		</tr>
-
          </table>
+</div>
+         	<div class="japan-pagination">
+	    <% if (!lessurl.isEmpty()) { %>
+	        <a href="<%= lessurl %>">&lt;&lt;</a>
+	    <% } %>
+	
+	    <span> Page: <%= currentPage %> </span>
+	
+	    <% if (!moreurl.isEmpty()) { %>
+	        <a href="<%= moreurl %>">&gt;&gt;</a>
+	    <% } %>
+	</div>
+         
 
 <%       }                                    //then include our footer.
          //if (searcher != null)

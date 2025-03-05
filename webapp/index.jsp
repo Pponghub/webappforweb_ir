@@ -21,13 +21,13 @@
  <style>
         .center-container {
             display: flex;
-            flex-direction: column; /* จัดเรียงแนวตั้ง */
-            justify-content: center; /* จัดให้อยู่ตรงกลางแนวตั้ง */
-            align-items: center; /* จัดให้อยู่ตรงกลางแนวนอน */
-            height: 100vh; /* ให้ใช้ความสูงเต็มจอ */
+            flex-direction: column; 
+            justify-content: center; 
+            align-items: center;
+            height: 100vh; 
         }
         img {
-            width: 600px; /* ปรับขนาดรูป */
+            width: 600px; 
             height: auto;
         }
 		.sky-gradient {
@@ -38,7 +38,7 @@
 	    	margin-left: 1000px;
 	    	margin-right: 1000px;
 		}
-		/* สไตล์สำหรับ container */
+		
 		.search-container {
 		  display: flex;
 		  justify-content: center;
@@ -53,7 +53,6 @@
 		  font-family: 'Noto Sans JP', sans-serif;
 		}
 		
-		/* สไตล์สำหรับ input */
 		.search-input {
 		  width: 80%;
 		  padding: 10px;
@@ -71,14 +70,13 @@
 		}
 		
 		.search-input:focus {
-		  border-color: #e60012; /* สีแดงที่สะท้อนถึงญี่ปุ่น */
+		  border-color: #e60012; 
 		  outline: none;
 		}
 		
-		/* สไตล์สำหรับ button */
 		.search-button {
 		  padding: 10px 20px;
-		  background-color: #e60012; /* สีแดงสะท้อนถึงญี่ปุ่น */
+		  background-color: #e60012; 
 		  color: white;
 		  border: none;
 		  border-radius: 20px;
@@ -91,9 +89,8 @@
 		  background-color: #d4000f;
 		}
 		
-		/* การเพิ่มลูกเล่นสไตล์ญี่ปุ่น */
 		.search-container::before {
-		  content: "🌸"; /* ใช้ดอกซากุระเป็นสัญลักษณ์ */
+		  content: "🌸"; 
 		  font-size: 24px;
 		  margin-right: 10px;
 		}
