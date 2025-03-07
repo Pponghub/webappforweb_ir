@@ -113,7 +113,8 @@
 	<div class="sky-gradient"><img src="img/japan_search.png"></img></div>
 	<form name="search" action="results.jsp" method="get" onsubmit="return validateSearchInput()">
 			<div class="search-container">
-			 	<input name="query" type="text" class="search-input" id="searchInput" required>&nbsp;<button class="search-button">Search</button>
+			 	<input name="query" type="text" class="search-input" id="searchInput" required 
+       value="<%= request.getParameter("query") != null ? request.getParameter("query") : "" %>">&nbsp;<button class="search-button">Search</button>
 			</div>
 		<p>
 			<input name="maxresults" size="4" value="10"/>&nbsp;Results Per Page&nbsp;
